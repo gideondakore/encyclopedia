@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+  
+  html {
+    /* font-size: 62.5%; */
+    box-sizing: border-box;
+  }
+
+  main{
+    /* width: 100vw; */
+    /* height: 100vh; */
+    position: relative;
+  }
+
+  .header{
+    background-color: #f7f5f5;
+    padding-bottom: 20px;
+    padding-top: 1rem;
+    padding-left: 12%;
+    height: 39%;
+  }
+
+  .info{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 14.5%;
+  }
+
+  .sign{
+    height: 4rem;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .sign>button{
+    height: 70%;
+    width: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+  .btnRegister:hover{
+    color: rgb(14, 40, 157);
+    border: 2px solid rgb(14, 40, 157);
+  }
+
+  .btnLogin{
+    background-color: rgb(14, 40, 157);
+    color: white;
+    border: 2px solid rgb(14, 40, 157);
+  }
+
+  .btnLogin:hover{
+    background-color: #1c1818;
+    border: 2px solid #1c1818;
+
+  }
+
+  .info>ul{
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellow; */
+   }
+
+
+   .info>ul>li{
+    cursor: pointer;
+  }
+  
+  .info>ul>li:hover{
+     text-decoration: underline;
+     text-decoration-color: rgb(14, 40, 157);
+     text-decoration-thickness: 2px;
+   }
+
+
+   h1:first-of-type{
+     text-transform: uppercase;
+     color: #12164a;
+     margin-top: 2rem;
+   }
+
+   .navigation{
+    background-image: url("/images/library-1.jpg");
+    background-color: #101456;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+    display: flex;
+    justify-content: space-between;
+    height: 24.2rem;
+    padding: 0px;
+    position: relative;
+   }
+
+   #navigationWrapper{
+    position: relative;
+    width: 100%;
+    height: 2.5rem;
+    background-color: rgb(14, 40, 157);
+    padding-left: 10rem;
+   }
+
+
+   .browse{
+    display: flex;
+    flex-direction: row;
+    font-size: 17px;
+    height: 100%;
+    width: 15%;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+   }
+
+
+   .label{
+    color: white;
+    font-weight: bold;
+   }
+
+   .browseArrow{
+     position: absolute;
+     bottom: -12px;
+     left: 40%;
+   }
+
+   #search{
+       position: absolute;
+       height: 3rem;
+       display: flex;
+       right: 10rem;
+       top: 0.01rem;
+       padding-right: 10px;
+       width: 20%;
+   }
+
+   form{
+    margin: auto;
+    height: 100%;
+    width: 100%;
+   }
+
+   #searchWrapper{
+    position: relative;
+    height: 100%;
+    width: 100%;
+   }
+
+   #searchWrapper>input{
+    height: 85%;
+    width: 92%;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 4px 7px;
+   }
+
+   #searchWrapper>img{
+     cursor: pointer;
+     background-color: white;
+     top: 6%;
+     width: 8%;
+     height: 70%;
+     right: 22px;
+     position: absolute;
+
+   }
+
+   a{
+    cursor: pointer
+   }
+   a:hover{
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-decoration-thickness: 2px;
+   }
+
+   .subjects{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    margin-left: 4.7%;
+   }
+
+   .subjectsWrapper{
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     grid-template-rows: repeat(auto-fill, minmax(2rem, auto));
+     gap: 0.5rem 2rem;
+     list-style: none;
+     padding: 1.25rem;
+   }
+
+   .subjects-items{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1rem 12.8rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    min-height: 2rem;
+   }
+
+   .subjects-items:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1)
+   }
+
+   .sideStyle{
+    width: 20%;
+    height: 10%;
+    background-color: rgb(14, 40, 157);
+    height: 100%;
+    display: none;
+   }
+
+   .close-modal{
+    position: absolute;
+    top: -1.0rem;
+    right: 0.1rem;
+    font-size: 2.5rem;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background: none;
+   }
+
+   .hidden{
+    display: none;
+   }
+
+ 
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>login</title>
+  </head>
+  <body>
+    <main>
+        <div class="form_logo">
+         <img width="50px" height="50px" src="/images/login-svg.svg"/>
+        </div>
+      <section class="login_section">
+        
+        <h3 class="login_title">login now</h3>
+        <form id="form">
+          <label for="username" class="username">username</label>
+          <input
+            class="username"
+            type="text"
+            placeholder="Enter your username"
+            required
+          />
+          <div id="passForgot">
+            <label for="password" class="password">password </label>
+            <a class="passForgot" href="#">forgot password?</a>
+          </div>
+
+          <input
+            class="password"
+            type="password"
+            placeholder="Enter your password"
+            required
+          />
+          <div class="remember-check">
+            <input type="checkbox" class="btnCheck" />
+            <label class="btnLabel">Remember me </label>
+          </div>
+          <button type="submit" class="login_button">login</button>
+          <div id="sign_title">
+            <hr class="hrLeft" />
+            <p>or sign up using</p>
+            <hr class="hrRight"/>
+          </div>
+          <ul>
+            <li>
+              <a href="#"></a>
+                <img
+                  width="30"
+                  height="30"
+                  class="imgSvg"
+                  src="/images/google-svg.svg"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#"></a>
+                <img
+                  width="30"
+                  height="30"
+                  class="imgSvg"
+                  src="/images/facebook-svg.svg"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#"></a>
+                <img
+                  width="30"
+                  height="30"
+                  class="imgSvg"
+                  src="/images/twitter-svg.svg"
+                />
+              </a>
+            </li>
+          </ul>
+         <footer>
+          <div id="sign_up">
+            <p>Doesn't have an account yet?</p>
+            <a href="#">sign up</a>
+          </div>
+         </footer>
+        </form>
+      </section>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
