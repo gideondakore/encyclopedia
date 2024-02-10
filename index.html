@@ -1,90 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <title>login</title>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
     <main>
-        <div class="form_logo">
-         <img width="50px" height="50px" src="/images/login-svg.svg"/>
-        </div>
-      <section class="login_section">
-        
-        <h3 class="login_title">login now</h3>
-        <form id="form">
-          <label for="username" class="username">username</label>
-          <input
-            class="username"
-            type="text"
-            placeholder="Enter your username"
-            required
-          />
-          <div id="passForgot">
-            <label for="password" class="password">password </label>
-            <a class="passForgot" href="#">forgot password?</a>
-          </div>
+        <section id="section-top">
+            <div id="header">
+                <h1><bold class="unique">p</bold><bold class="bold">roject<bold class="unique">1</bold><bold class="unique">g</bold><bold class="unique">1</bold>pedi</bold><bold class="unique">a</bold></h1>
+                <p>the best encyclopedia</p>
+            </div>
+            <div id="grid-layout">
+                <div class="lang one">
+                    <a class="link-anchor">
+                        <strong>English</strong>
+                        <small>
+                            6,777,000&plus;
+                            <span>articles</span>  
+                        </small>
+                    </a>
+                </div>
+                 <div class="lang two">
+                    <a class="link-anchor">
+                        <strong>日本語</strong>
+                        <small>
+                            1,401,000&plus;
+                            <span>記事</span>  
+                        </small>
+                    </a>
+                </div>
+                <div class="lang three">
+                    <a class="link-anchor">
+                        <strong>Deutsch</strong>
+                        <small>
+                            2.8777.000&plus;
+                            <span>Artikel</span>  
+                        </small>
+                    </a>
+                </div>
+               <div class="lang four">
+                    <a class="link-anchor">
+                        <strong>Italiano</strong>
+                        <small>
+                            1.845.000&plus;
+                            <span>voci</span>  
+                        </small>
+                    </a>
+                </div>
+                 <div class="lang five">
+                    <a class="link-anchor">
+                        <strong><bdi>العربية</bdi></strong>
+                        <small>١٬٢٢٦٬٠٠٠+ <span>مقالة</span></small>
+                    </a>
+                </div>
+                <div class="wiki-logo">
+                    <img src="/images/wiki-logo.jpeg"/>
+                </div>
 
-          <input
-            class="password"
-            type="password"
-            placeholder="Enter your password"
-            required
-          />
-          <div class="remember-check">
-            <input type="checkbox" class="btnCheck" />
-            <label class="btnLabel">Remember me </label>
-          </div>
-          <button type="submit" class="login_button">login</button>
-          <div id="sign_title">
-            <hr class="hrLeft" />
-            <p>or sign up using</p>
-            <hr class="hrRight"/>
-          </div>
-          <ul>
-            <li>
-              <a href="#"></a>
-                <img
-                  width="30"
-                  height="30"
-                  class="imgSvg"
-                  src="/images/google-svg.svg"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#"></a>
-                <img
-                  width="30"
-                  height="30"
-                  class="imgSvg"
-                  src="/images/facebook-svg.svg"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#"></a>
-                <img
-                  width="30"
-                  height="30"
-                  class="imgSvg"
-                  src="/images/twitter-svg.svg"
-                />
-              </a>
-            </li>
-          </ul>
-         <footer>
-          <div id="sign_up">
-            <p>Doesn't have an account yet?</p>
-            <a href="#">sign up</a>
-          </div>
-         </footer>
-        </form>
-      </section>
+                <div class="lang six">
+                    <a class="link-anchor">
+                        <strong>Русский</strong>
+                        <small>
+                            1 961 000&plus;
+                            <span>статей</span>  
+                        </small>
+                    </a>
+                    
+                </div>
+                 <div class="lang seven">
+                    <a class="link-anchor">
+                        <strong>Español</strong>
+                        <small>
+                            1.927.000&plus;
+                            <span>artículos</span>  
+                        </small>
+                    </a>
+                </div>
+                <div class="lang eight">
+                    <a class="link-anchor">
+                        <strong>Français</strong>
+                        <small>
+                            2 587 000&plus;
+                            <span>articles</span>  
+                        </small>
+                    </a>
+                </div>
+               <div class="lang nine">
+                    <a class="link-anchor">
+                        <strong>中文</strong>
+                        <small>
+                            1,401,000&plus;
+                            <span>条目 / 條目</span>  
+                        </small>
+                    </a>
+                </div>
+                 <div class="lang ten">
+                    <a class="link-anchor">
+                        <strong><bdi>فارسی</bdi></strong>
+                        <small>۹۹۱٬۰۰۰+ <span>مقاله</span></small>
+                    </a>
+                </div>
+            </div>
+            <div id="aLink">
+                <a class="link-main" target="_self" href="/entry.html">
+                  <img src="/images/icons-book.gif"/>
+                  <strong>Click to Search for Pool of Knowledge</strong>
+                  <img src="/images/icons-book.gif"/>
+                </a>
+            </div>
+            <footer>
+                <hr/>
+                <p class="copyright">
+                   &copy; Copyright by
+                   <a class="github-link" target="_blank" href="https://github.com/gideondakore/encyclopedia">&nbsp;Project1G1</a>
+                   . Use for learning or your portfolio. Don't claim as your own.
+                   <strong>&#8226; </strong>
+                   <a class="copyright-anchor" target="_blank" href="https://github.com/gideondakore/encyclopedia/blob/main/LICENSE">Terms of Use</a>
+                   <strong>&#8226; </strong>
+                   <a class="copyright-anchor" target="_blank" href="https://github.com/gideondakore/encyclopedia/blob/main/LICENSE">Privacy Policy</a>
+                </p>
+            </footer>
+        </section>
     </main>
     <script src="index.js"></script>
-  </body>
+</body>
 </html>
