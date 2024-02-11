@@ -10,8 +10,9 @@ const linkAnchors = document.querySelectorAll(".info>ul>li>a");
 const subjectsWrapper = document.querySelector(".subjectsWrapper");
 const subjectLinks = document.querySelectorAll(".subjects-items>a");
 const searchIcon = document.querySelector(".searchIcon");
+const searchQuery = document.getElementById("q");
 
-console.log(searchIcon);
+// console.log(searchQuery);
 
 const subjectLists = [
   "Africa history",
@@ -29,7 +30,7 @@ const subjectLists = [
   "Computer Science",
   "Food Studies",
   "Global Public Health",
-  "Internatial Studies",
+  "International Studies",
   "Latin America History",
   "Linguistics",
   "Literature",
@@ -116,11 +117,6 @@ btnShowSubjects.addEventListener("click", (e) => {
   }
 });
 
-/////////////////////////////
-// console.log(subjectItems);
-
-/////////////////////////////////
-
 main.addEventListener(
   "click",
   (event) => {
@@ -181,3 +177,27 @@ for (let i = 0; i < linkAnchors.length; i++) {
     }
   });
 }
+
+searchIcon.addEventListener("click", (e) => {
+  e.preventDefault();
+  const searchParam = searchQuery.value;
+  if (!searchParam) return;
+  const apiUrl = `https://www.google.com/search?q=${searchParam}`;
+
+  window.open(apiUrl, "_blank");
+});
+
+searchQuery.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+
+    const searchTerm = searchQuery.value;
+    if (!searchTerm) return;
+
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(
+      searchTerm
+    )}`;
+
+    window.open(searchUrl, "_blank");
+  }
+});
