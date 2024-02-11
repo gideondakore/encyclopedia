@@ -3,24 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="new.css"/>
   <title>Markdown to HTML Conversion</title>
-  <style>
-    textarea {
-      width: 100%;
-      height: 200px;
-    }
-    #output {
-      margin-top: 20px;
-      border: 1px solid #ccc;
-      padding: 10px;
-    }
-  </style>
 </head>
 <body>
+  <div id="header">
+    <h1><bold class="unique">p</bold><bold class="bold">roject<bold class="unique">1</bold><bold class="unique">g</bold><bold class="unique">1</bold>pedi</bold><bold class="unique">a</bold></h1>
+    <p>the best encyclopedia</p>
+  </div>
   <h1>Markdown to HTML Conversion</h1>
-  <label for="markdown">Enter Markdown:</label>
-  <textarea id="markdown" autofocus></textarea>
+  <div id="authorWrapper">
+    <label class="author-label" for="author">Author:</label>
+    <input id="author" type="author" autofocus/>
+  </div>
+  <div id="titleWrapper">
+    <label class="title-llabel" for="title">Title:</label>
+    <input id="title" type="text"/>
+  </div>
+  <div id="markdownWrapper">
+    <label for="markdown">Enter Content in Markdown Format:</label>
+    <textarea id="markdown"></textarea>
+  </div>
+  <label class="html-label" for="output">HTML Equivalent:</label>
   <div id="output"></div>
+  <div id="footer">
+    <button class="btn-save">Save</button>
+    <a target="_self" href="/entry.html">Cancel</a>
+  </div>
   <script type="module" src="new.js"></script>
 </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Encyclopedia Entry</title>
+</head>
+<body>
+
+<header>
+    <h1>My Encyclopedia Project</h1>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Index</a></li>
+            <li><a href="/search.html">Search</a></li>
+            <li><a href="/random.html">Random Page</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h2>Create a New Encyclopedia Entry</h2>
+    <form id="newEntryForm">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" rows="10" required></textarea>
+        <button type="submit">Save</button>
+        <button type="button" onclick="cancel()">Cancel</button>
+    </form>
+</main>
+
+<footer>
+    <!-- Footer content goes here -->
+</footer>
+
+<script>
+    function cancel() {
+        // Redirect to index page or another appropriate location
+        window.location.href = "/index.html";
+    }
+</script>
+
+</body>
+</html>
