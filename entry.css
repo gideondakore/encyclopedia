@@ -13,6 +13,7 @@
     /* width: 100vw; */
     /* height: 100vh; */
     position: relative;
+    padding-bottom: 2rem;
   }
 
   .header{
@@ -65,6 +66,7 @@
 
   }
 
+
   .info>ul{
     display: flex;
     list-style: none;
@@ -74,13 +76,14 @@
    }
 
 
-   .info>ul>a{
+   .info>ul>li>a{
     cursor: pointer;
     color: black;
     text-decoration: none;
+    /* z-index: 10; */
   }
   
-  .info>ul>a:hover{
+  .info>ul>li>a:hover{
      text-decoration: underline;
      text-decoration-color: rgb(14, 40, 157);
      text-decoration-thickness: 2px;
@@ -203,31 +206,42 @@
    .subjectsWrapper{
      display: grid;
      grid-template-columns: repeat(4, 1fr);
-     grid-template-rows: repeat(auto-fill, minmax(2rem, auto));
+     grid-template-rows: repeat(auto-fit, minmax(2rem, auto));
      gap: 0.5rem 2rem;
      list-style: none;
-     padding: 1.25rem;
+     padding: 1.25rem 0px;
    }
 
    .subjects-items{
     background-color: white;
     display: grid;
-    grid-template-columns: 1rem 12.8rem;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 0.2rem 12.8rem;
+    grid-template-rows: repeat(1, minmax(2.5rem, auto));
     font-size: 1.25rem;
     min-height: 2rem;
    }
 
    .subjects-items:hover{
-    text-decoration: underline;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.1)
    }
 
+   .subjects-items>a{
+    grid-column: 2 / span 1;
+    grid-row: 1/span 1;
+    text-decoration: none;
+    padding-left: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+   }
+
+
    .sideStyle{
-    width: 20%;
-    height: 10%;
+    grid-column: 1 / span 1;
+    grid-row: 1/span 1;
+    max-width: 0.2rem;
     background-color: rgb(14, 40, 157);
     height: 100%;
     display: none;

@@ -75,14 +75,14 @@ form{
    row-gap: 10px;
 } 
 
-input.username{
+input.email{
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
   margin: 1.40rem 0px 0px 0px;
   width: 100%;
 }
 
-label.username{
+label.email{
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
   margin-bottom: 1.5rem;
@@ -206,7 +206,7 @@ li>a>img{
     width: 80vw; 
   }
 
-  input.username,
+  input.email,
   input.password {
     width: 100%;
   }
