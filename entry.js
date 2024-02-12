@@ -11,6 +11,7 @@ const subjectsWrapper = document.querySelector(".subjectsWrapper");
 const subjectLinks = document.querySelectorAll(".subjects-items>a");
 const searchIcon = document.querySelector(".searchIcon");
 const searchQuery = document.getElementById("q");
+const newEntryArticle = document.getElementById("newEntry-article--container");
 
 // console.log(searchQuery);
 
@@ -169,6 +170,9 @@ for (let i = 0; i < linkAnchors.length; i++) {
       case "contact":
         window.location.href = "/contact.html";
         break;
+      case "new":
+        window.location.href = "/new.html";
+        break;
       case "personal profile":
         window.location.href = "/profile.html";
         break;
@@ -259,17 +263,38 @@ const fetchData = async function (company) {
     data.articles.company = company;
     return data.articles;
   } catch (error) {
-    console.error("Oops! problem occurs while fetching the data: ", error);
+    // console.error("Oops! problem occurs while fetching the data: ", error);
   }
 };
 
 const displayNews = function (list) {
   const newsArticleWrapper = document.getElementById("news-article--list");
   newsArticleWrapper.innerHTML = "";
+  if (list.length === 0) {
+    const defaultHTML = `<pre>
+     <strong>This message only display with two major possibility:</strong>
+     <h2>The Problems:</h2>
+     <strong>&#8226;</strong> <code>No internet connection.</code>
+     <strong>&#8226;</strong> <code>The Api key duration had expired.</code>
+     <h2>The Solutions:</h2>
+     <strong>&#8226; </strong> <code>Connected to the internet</code>
+     <strong>&#8226;</strong> <code>The api key was registered for development purposes: 
+     1) Wait for 24hours for it be renew if you have not reach the monthly lifespan.
+     2) Or visit this site <a class="newsapi" target="_blank" href="https://newsapi.org">newsapi.org</a> to register for new api key.
+     3) With the new api key obtain change the old api key in the url params found in the entry.js 
+     file if you happen to have access to the source code.</code>
+     </pre>`;
 
-  console.log("=============: ", list);
+    newsArticleWrapper.insertAdjacentHTML("afterbegin", defaultHTML);
+
+    document.querySelector(".newsapi").addEventListener("click", (e) => {
+      e.preventDefault();
+      window.open("https://newsapi.org", "_blank");
+    });
+  }
+  // console.log("LIST: ", list.length);
+
   list.forEach((list, i) => {
-    console.log("=========: ", list);
     const date = formatDate(list.publishedAt);
     const html = `<li>
       <p>${date}</p>
@@ -293,6 +318,24 @@ for (let i = 0; i < 5; i++) {
   });
 }
 
-setTimeout(() => {
-  displayNews(randNewsList);
-}, 2000);
+(function loadRandomNews() {
+  const newsArticleWrapper = document.getElementById("news-article--list");
+  newsArticleWrapper.innerHTML = "";
+  newsArticleWrapper.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="loader"></div>`
+  );
+  setTimeout(() => {
+    displayNews(randNewsList);
+  }, 5000);
+})();
+
+document.addEventListener("DOMContentLoaded", (e) => {
+  e.preventDefault();
+
+  const localStorageData = localStorage.getItem("newEntry");
+  if (localStorageData) {
+    const jsonData = JSON.parse(localStorageData);
+    console.log(jsonData);
+  }
+});

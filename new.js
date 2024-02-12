@@ -14,10 +14,8 @@ markdownInput.addEventListener("input", function (e) {
     return;
   }
   e.preventDefault();
-  console.log(title.value);
   const markdownText = e.target.value;
   const htmlText = marked(markdownText);
-  console.log(htmlText);
   outputDiv.innerHTML = htmlText;
 });
 
