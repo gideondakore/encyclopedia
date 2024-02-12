@@ -201,3 +201,98 @@ searchQuery.addEventListener("keypress", function (event) {
     window.open(searchUrl, "_blank");
   }
 });
+
+const companies = [
+  "Apple",
+  "Microsoft",
+  "Amazon",
+  "Alphabet",
+  "Facebook",
+  "Alibaba",
+  "Tencent",
+  "Tesla",
+  "Johnson & Johnson",
+  "JPMorgan Chase",
+  "Berkshire Hathaway",
+  "Visa",
+  "Walmart",
+  "Procter & Gamble",
+  "Samsung",
+  "Toyota",
+  "Coca-Cola",
+  "Pfizer",
+  "Nestlé",
+  "Exxon Mobil",
+  "Walt Disney",
+  "AT&T",
+  "Netflix",
+  "Adobe",
+  "General Electric",
+  "Cisco",
+  "Mastercard",
+  "McDonald's",
+  "IBM",
+  "PepsiCo",
+];
+
+let randNewsList = [];
+const randomCompany = function () {
+  const randomIndex = Math.floor(Math.random() * companies.length);
+  return companies[randomIndex];
+};
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  return date.toLocaleDateString("en-US", options).toUpperCase();
+}
+
+const fetchData = async function (company) {
+  try {
+    // const url = `https://newsapi.org/v2/everything?q=${company}&from=2024-02-10&to=2024-02-10&sortBy=popularity&apiKey=6e9e643cb4764c3898791e4bb1d66336`;
+    const req = new Request(url);
+    const response = await fetch(req);
+    if (!response.ok) {
+      throw new Error("Unable to fetch the data");
+    }
+    const data = await response.json();
+    data.articles.company = company;
+    return data.articles;
+  } catch (error) {
+    console.error("Oops! problem occurs while fetching the data: ", error);
+  }
+};
+
+const displayNews = function (list) {
+  const newsArticleWrapper = document.getElementById("news-article--list");
+  newsArticleWrapper.innerHTML = "";
+
+  console.log("=============: ", list);
+  list.forEach((list, i) => {
+    console.log("=========: ", list);
+    const date = formatDate(list.publishedAt);
+    const html = `<li>
+      <p>${date}</p>
+      <h4>${list.title}</h4>
+      <p>${list.description}</p>
+      <a target="_blank" href=${list.url}>click for detail news</a>
+      <p>Author:${list.author}</p>
+      </li>`;
+
+    newsArticleWrapper.insertAdjacentHTML("afterbegin", html);
+  });
+};
+
+for (let i = 0; i < 5; i++) {
+  fetchData(randomCompany()).then((data) => {
+    if (data) {
+      const randNews = data[Math.floor(Math.random() * data.length)];
+
+      randNewsList.push(randNews);
+    }
+  });
+}
+
+setTimeout(() => {
+  displayNews(randNewsList);
+}, 2000);
