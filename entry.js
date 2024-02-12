@@ -12,7 +12,7 @@ const subjectLinks = document.querySelectorAll(".subjects-items>a");
 const searchIcon = document.querySelector(".searchIcon");
 const searchQuery = document.getElementById("q");
 const newEntryArticle = document.getElementById("newEntry-article--container");
-
+// const btnSearch = document.querySelector(".btnSearch");
 // console.log(searchQuery);
 
 const subjectLists = [
@@ -176,6 +176,12 @@ for (let i = 0; i < linkAnchors.length; i++) {
       case "personal profile":
         window.location.href = "/profile.html";
         break;
+      case "edit":
+        window.location.href = "/edit.html";
+        break;
+      case "search":
+        searchQuery.focus();
+        break;
       default:
         window.location.href = "/";
     }
@@ -263,7 +269,7 @@ const fetchData = async function (company) {
     data.articles.company = company;
     return data.articles;
   } catch (error) {
-    // console.error("Oops! problem occurs while fetching the data: ", error);
+    console.error("Oops! problem occurs while fetching the data: ", error);
   }
 };
 
@@ -339,16 +345,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const jsonDataAuthor = jsonData.author;
     const jsonDataTitle = jsonData.title;
     const jsonHtmlDataBody = jsonData.htmlBody;
-    // console.log(
-    //   "CONSOLE: ",
-    //   jsonData,
-    //   jsonDataAuthor,
-    //   jsonDataTitle,
-    //   jsonHtmlDataBody
-    // );
 
     const newEntryHTML = `
-    <p><strong>Title</strong>: ${jsonDataTitle}</p>
+    <p class="entry-title"><strong>Title</strong>:<strong><em> ${jsonDataTitle}</em></strong></p>
     ${jsonHtmlDataBody}
     <small><strong>Author: </strong>${jsonDataAuthor}</small>
     <button class="edit-article"><code>Edit article</code></button>
@@ -362,9 +361,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const newEntryHTMLDefault = `
     <pre>
     <p>You have no article or book added!</p>
-    <button>Add New Entry</button>
+    <button class="btnEntry">Add New Entry</button>
     </pre>
     `;
     newEntryArticle.insertAdjacentHTML("afterbegin", newEntryHTMLDefault);
+    document.querySelector(".btnEntry").addEventListener("click", (e) => {
+      e.preventDefault();
+      location.href = "/new.html";
+    });
   }
 });

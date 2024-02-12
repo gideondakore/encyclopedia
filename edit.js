@@ -7,10 +7,28 @@ const btnSave = document.querySelector(".btn-save");
 const btnExit = document.querySelector(".btn-exit");
 const author = document.getElementById("author");
 
+document.addEventListener("DOMContentLoaded", (e) => {
+  e.preventDefault();
+  const localStorageData = localStorage.getItem("newEntry");
+  if (localStorageData) {
+    const jsonData = JSON.parse(localStorageData);
+    const jsonDataAuthor = jsonData.author;
+    const jsonDataTitle = jsonData.title;
+    const jsonRawDataBody = jsonData.rawBody;
+    author.value = jsonDataAuthor;
+    title.value = jsonDataTitle;
+    markdownInput.textContent = jsonRawDataBody;
+
+    markdownInput.focus();
+    return;
+  }
+  alert("You have not added any encyclopedia entry yet");
+  window.history.back();
+});
 markdownInput.addEventListener("input", function (e) {
   if (title.value === "" || author.value === "") {
     alert("Give a title and author of your entry before the content");
-    author.focus();
+    title.focus();
     e.target.value = "";
     return;
   }
@@ -39,7 +57,7 @@ btnSave.addEventListener("click", (e) => {
   const jsonData = JSON.stringify(entryObj);
 
   localStorage.setItem("newEntry", jsonData);
-  alert("New article has been added successfully! You can now exit.");
+  alert("Article has been updated successfully! You can now exit.");
 });
 
 btnExit.addEventListener("click", (e) => {
