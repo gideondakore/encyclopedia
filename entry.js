@@ -338,7 +338,33 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const jsonData = JSON.parse(localStorageData);
     const jsonDataAuthor = jsonData.author;
     const jsonDataTitle = jsonData.title;
-    const jsonDataBody = jsonData.body;
-    console.log(jsonData);
+    const jsonHtmlDataBody = jsonData.htmlBody;
+    // console.log(
+    //   "CONSOLE: ",
+    //   jsonData,
+    //   jsonDataAuthor,
+    //   jsonDataTitle,
+    //   jsonHtmlDataBody
+    // );
+
+    const newEntryHTML = `
+    <p><strong>Title</strong>: ${jsonDataTitle}</p>
+    ${jsonHtmlDataBody}
+    <small><strong>Author: </strong>${jsonDataAuthor}</small>
+    <button class="edit-article"><code>Edit article</code></button>
+    `;
+    newEntryArticle.insertAdjacentHTML("afterbegin", newEntryHTML);
+    document.querySelector(".edit-article").addEventListener("click", (e) => {
+      e.preventDefault();
+      location.href = "/edit.html";
+    });
+  } else {
+    const newEntryHTMLDefault = `
+    <pre>
+    <p>You have no article or book added!</p>
+    <button>Add New Entry</button>
+    </pre>
+    `;
+    newEntryArticle.insertAdjacentHTML("afterbegin", newEntryHTMLDefault);
   }
 });

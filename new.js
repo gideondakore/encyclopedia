@@ -33,7 +33,9 @@ btnSave.addEventListener("click", (e) => {
 
   entryObj.author = author.value;
   entryObj.title = title.value;
-  entryObj.body = marked.parse(markdownInput.value);
+  entryObj.rawBody = markdownInput.value;
+  entryObj.htmlBody = marked(markdownInput.value);
   const jsonData = JSON.stringify(entryObj);
+
   localStorage.setItem("newEntry", jsonData);
 });
