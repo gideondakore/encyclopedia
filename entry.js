@@ -336,6 +336,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const localStorageData = localStorage.getItem("newEntry");
   if (localStorageData) {
     const jsonData = JSON.parse(localStorageData);
+    const jsonDataAuthor = jsonData.author;
+    const jsonDataTitle = jsonData.title;
+    const jsonDataBody = jsonData.body;
     console.log(jsonData);
   }
 });

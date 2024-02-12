@@ -379,6 +379,9 @@
     flex-direction: column;
   }
 
+  #newEntry-article--container > {
+
+  }
   /* /////////////////NEWS ARTICLES///////////////////// */
 
  #news-article, 
