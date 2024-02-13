@@ -81,7 +81,6 @@
   
   #output {
     padding: 10px;
-    /* margin: auto; */
     width: 100%;
     min-height: 2rem;
     border: 1px solid #ccc;
@@ -93,7 +92,6 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    /* min-width: 10rem; */
   }
   #footer > button {
     min-height: 3rem;

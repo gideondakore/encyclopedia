@@ -15,7 +15,7 @@ html{
     flex-direction: column;
     gap: 2rem;
     padding-top: 2rem;
-    padding-bottom: 5rem;/*TODO: remove that*/
+    padding-bottom: 5rem;
 }
 
 #header{
@@ -41,7 +41,6 @@ html{
 .bold{
     font-size: 25px;
     font-family: 'Times New Roman';
-    /* opacity: 0.85; */
     color: rgb(14, 40, 157);
 }
 

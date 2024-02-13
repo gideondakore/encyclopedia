@@ -12,8 +12,6 @@ const subjectLinks = document.querySelectorAll(".subjects-items>a");
 const searchIcon = document.querySelector(".searchIcon");
 const searchQuery = document.getElementById("q");
 const newEntryArticle = document.getElementById("newEntry-article--container");
-// const btnSearch = document.querySelector(".btnSearch");
-// console.log(searchQuery);
 
 const subjectLists = [
   "Africa history",
@@ -259,7 +257,25 @@ function formatDate(dateString) {
 
 const fetchData = async function (company) {
   try {
-    // const url = `https://newsapi.org/v2/everything?q=${company}&from=2024-02-10&to=2024-02-10&sortBy=popularity&apiKey=6e9e643cb4764c3898791e4bb1d66336`;
+    const today = new Date();
+    let yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    const monthBefore = yesterday.getMonth() + 1;
+    const yearBefore = yesterday.getFullYear();
+    const dayBefore = yesterday.getDate();
+    const dayOfWeekIndexBefore = yesterday.getDay();
+
+    const apiKey = "35ad6576bbf34ae79e79ebcd832c710a";
+
+    const url = `https://newsapi.org/v2/everything?q=${company}&from=${yearBefore}-${monthBefore}-${dayBefore}&to=${yearBefore}-${monthBefore}-${Math.abs(
+      dayBefore - dayOfWeekIndexBefore
+    )}&sortBy=popularity&apiKey=${apiKey}`;
+    console.log(
+      `${company}&from=${yearBefore}-${monthBefore}-${dayBefore}&to=${yearBefore}-${monthBefore}-${Math.abs(
+        dayBefore - dayOfWeekIndexBefore
+      )}`
+    );
+
     const req = new Request(url);
     const response = await fetch(req);
     if (!response.ok) {
@@ -298,7 +314,10 @@ const displayNews = function (list) {
       window.open("https://newsapi.org", "_blank");
     });
   }
-  // console.log("LIST: ", list.length);
+
+  if (!list) {
+    location.reload();
+  }
 
   list.forEach((list, i) => {
     const date = formatDate(list.publishedAt);
@@ -306,11 +325,17 @@ const displayNews = function (list) {
       <p>${date}</p>
       <h4>${list.title}</h4>
       <p>${list.description}</p>
-      <a target="_blank" href=${list.url}>click for detail news</a>
-      <p>Author:${list.author}</p>
+      <a class="articleLink" target="_blank" href=${
+        list.url
+      }>click for detail news</a>
+      <p>Author:${list.author ? list.author : "Unknown"}</p>
       </li>`;
 
     newsArticleWrapper.insertAdjacentHTML("afterbegin", html);
+    document.querySelector(".articleLink").addEventListener("click", (e) => {
+      e.preventDefault();
+      window.open(`${list.url}`, "_blank");
+    });
   });
 };
 
@@ -370,4 +395,20 @@ document.addEventListener("DOMContentLoaded", (e) => {
       location.href = "/new.html";
     });
   }
+});
+
+const featureLinks = document.querySelectorAll("#featuredBody>h3>a");
+featureLinks.forEach((link, i) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.open(e.target.href, "_blank");
+  });
+});
+
+const featureLinksImg = document.querySelectorAll(".featured-img--wrapper>a");
+featureLinksImg.forEach((link, i) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.open(`${e.target.parentElement.href}`, "_blank");
+  });
 });

@@ -4,6 +4,7 @@ const markdownInput = document.getElementById("markdown");
 const outputDiv = document.getElementById("output");
 const title = document.getElementById("title");
 const btnSave = document.querySelector(".btn-save");
+const btnDelete = document.querySelector(".btn-delete");
 const btnExit = document.querySelector(".btn-exit");
 const author = document.getElementById("author");
 
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     markdownInput.focus();
     return;
   }
-  alert("You have not added any encyclopedia entry yet");
+  alert("You have no encyclopedia entry yet");
   window.history.back();
 });
 markdownInput.addEventListener("input", function (e) {
@@ -63,4 +64,29 @@ btnSave.addEventListener("click", (e) => {
 btnExit.addEventListener("click", (e) => {
   e.preventDefault();
   location.href = "/entry.html";
+});
+
+btnDelete.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let userInput;
+
+  userInput = prompt("Do you want to delete the article 'yes' or 'no':");
+  userInput = userInput ? userInput.toLowerCase() : "";
+
+  if (userInput === "yes" || userInput === "no") {
+    if (userInput === "yes") {
+      markdownInput.textContent = "";
+      outputDiv.value = "";
+      title.value = "";
+      author.value = "";
+      localStorage.removeItem("newEntry");
+      alert("Article had been deleted successfully!");
+      location.reload();
+    } else {
+      alert("Deletion declined!");
+    }
+  } else {
+    alert("Invalid response, deletion declined!");
+  }
 });

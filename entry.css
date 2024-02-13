@@ -5,13 +5,10 @@
   }
   
   html {
-    /* font-size: 62.5%; */
     box-sizing: border-box;
   }
 
   main{
-    /* width: 100vw; */
-    /* height: 100vh; */
     position: relative;
     padding-bottom: 2rem;
     display: flex;
@@ -176,6 +173,11 @@
     padding: 4px 7px;
    }
 
+   #searchWrapper>input:focus{
+    border: 5px solid rgb(6, 118, 6);
+     
+   }
+
    #searchWrapper>img{
      cursor: pointer;
      background-color: white;
@@ -281,7 +283,7 @@
   padding: 0;
   box-sizing: border-box;
   display: grid;
-  min-height: 100vh;/*Note here */
+  min-height: 100vh;
   place-content: center;
   margin-bottom: 3rem;
   }

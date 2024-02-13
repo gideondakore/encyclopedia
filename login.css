@@ -14,7 +14,6 @@ html{
 body{
   background-image: url("/images/sysadmin_03.jpg");
   background-color: linear-gradient(45deg, rgb(224, 114, 224), purple);
-  /* background-color: rgb(224, 114, 224); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

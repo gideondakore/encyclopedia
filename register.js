@@ -3,7 +3,6 @@ const btnBack = document.querySelector(".back-btn");
 
 btnRegister.addEventListener("click", (e) => {
   e.preventDefault();
-  // console.log(window.location.href);
   window.location.href = "/entry.html";
 });
 
